@@ -7,7 +7,7 @@ from google.auth.transport.requests import Request
 
 #If modifying scopes change this
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
-
+CRED_FILE = os.getenv('GMAIL_CREDS')
 def main():
     creds = None
     if os.path.exists('token.pickle'):
@@ -18,7 +18,7 @@ def main():
             creds.refresh(Request())
         else:
             flow = InstalledAppFlow.from_client_secrets_file(
-                 'credentials.json', SCOPES)
+                 CRED_FILE, SCOPES)
             creds = flow.run_local_server()
         
         with open('token.pickle', 'wb') as token:
