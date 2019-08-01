@@ -7,7 +7,7 @@ from google.auth.transport.requests import Request
 
 #If modifying scopes change this
 SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
-CRED_FILE = os.getenv('GMAIL_CREDS')
+CRED_FILE =
 def main():
     creds = None
     if os.path.exists('token.pickle'):
